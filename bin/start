@@ -1,4 +1,3 @@
-#!/usr/bin/env node
-'use strict'
+#!/usr/bin/env bash
 
-import '../dist/server.js'
+NODE_ENV=production npm run start src/server/server.js

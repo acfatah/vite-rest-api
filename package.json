@@ -3,14 +3,14 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "main": "dist/server.js",
+  "main": "src/server/server.js",
   "bin": "bin/start",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "node dist/server.js",
-    "dev": "vite-node --watch src/server.js",
+    "start": "NODE_ENV=production node src/server/server.js",
+    "dev": "vite-node --watch src/server/server.js",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint",

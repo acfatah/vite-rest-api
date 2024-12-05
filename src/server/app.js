@@ -4,9 +4,9 @@ import express from 'express'
 import helmet from 'helmet'
 import httpStatus from 'http-status'
 
-import { errorConverter, errorHandler, logger } from './middlewares'
-import routes from './routes'
-import { ApiError } from './utils'
+import { errorConverter, errorHandler, logger } from './middlewares/index.js'
+import routes from './routes/index.js'
+import { ApiError } from './utils/index.js'
 
 export const app = express()
 

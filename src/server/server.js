@@ -4,9 +4,10 @@ import { app } from './app.js'
 
 const args = minimist(process.argv.slice(2))
 const PORT = args.port || 3000
+const MODE = process.env.NODE_ENV || 'development'
 
 const server = app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
+  console.log(`Server is running on port ${PORT} in ${MODE} mode`)
 })
 
 // @ts-ignore

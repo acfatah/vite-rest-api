@@ -3,17 +3,15 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
+    sourcemap: true,
     rollupOptions: {
-      external: ['express'],
       input: {
         main: resolve(__dirname, 'index.html'),
-        server: resolve(__dirname, 'src/server.js'),
       },
       output: {
-        globals: {
-          express: 'express',
-        },
+        dir: 'dist',
       },
     },
   },
+  publicDir: 'public',
 })
