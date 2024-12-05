@@ -1,6 +1,6 @@
 import request from 'supertest'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { app } from '../src/app.js'
+import { app } from '../src/server/app.js'
 
 let server
 
