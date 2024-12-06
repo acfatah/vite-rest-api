@@ -1,7 +1,13 @@
 import process from 'node:process'
 import express from 'express'
+import testRoutes from '../../../tests/routes.js'
+import authRoutes from './auth.js'
 
 const router = express.Router()
+
+if (['development', 'test'].includes(process.env.NODE_ENV)) {
+  router.use(testRoutes)
+}
 
 // Health Check Endpoint
 router.get('/status', (req, res) => {
@@ -24,5 +30,7 @@ router.get('/status', (req, res) => {
 router.get('/', (_req, res) => {
   res.send('Server is running')
 })
+
+router.use('/api/v1/auth', authRoutes)
 
 export default router

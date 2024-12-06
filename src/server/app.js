@@ -4,7 +4,13 @@ import express from 'express'
 import helmet from 'helmet'
 import httpStatus from 'http-status'
 
-import { errorConverter, errorHandler, logger } from './middlewares/index.js'
+import {
+  errorConverter,
+  errorHandler,
+  jwtErrorHandler,
+  jwtMiddleware,
+  logger,
+} from './middlewares/index.js'
 import routes from './routes/index.js'
 import { ApiError } from './utils/index.js'
 
@@ -28,7 +34,9 @@ app.use(compression())
 app.use(cors())
 app.options('*', cors())
 
-// TODO: Add JWT authentication
+// JWT authentication
+app.use(jwtMiddleware)
+app.use(jwtErrorHandler)
 
 app.use(routes)
 

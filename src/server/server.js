@@ -13,6 +13,16 @@ server.on('listening', () => {
   const { address, port } = server.address()
   const host = address === '::' ? 'localhost' : address
 
+  if (!process.env.JWT_SECRET) {
+    console.error('Error: JWT_SECRET is not defined')
+    process.exit(1)
+  }
+
+  if (!process.env.JWT_REFRESH_SECRET) {
+    console.error('Error: JWT_REFRESH_SECRET is not defined')
+    process.exit(1)
+  }
+
   console.log(`Server is listening on ${host}:${port} in ${MODE} mode`)
 })
 
